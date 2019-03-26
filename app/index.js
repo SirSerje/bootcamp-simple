@@ -1,10 +1,6 @@
+import 'styles/index.scss';
 import request from 'utils/request';
+//-----  end of imports  -------
 
-fetch(request)
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(JSON.stringify(data));
-    })
-    .catch(error => console.error('Error:', error));
+document.write('<h1>Weather</h1>'); //render header
+request();
