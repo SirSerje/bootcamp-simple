@@ -15,8 +15,7 @@ Project bundles with webpack to have ability for valid ES6 support and easier to
 
 All task will be presented in issues. If you need to create an issue - you're welcome!
 
-For example, you've found task '666 Create awesome design', so you shoud create branch, called 'task/#666-create-awesome-design'
-and all commit names should contain task index in format: '#666 ... my awesome changes ...'
+Canonical naming for commit and branch you can find in https://github.com/SirSerje/bootcamp-simple/pull/7
 
 When you're think, job is done, create pull request your branch into develop branch and add as reviewers all team.
 After at least one success review, you're able to merge it. You're have to fix all review changes before merge.
