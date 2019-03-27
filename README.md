@@ -21,3 +21,5 @@ When you're think, job is done, create pull request your branch into develop bra
 After at least one success review, you're able to merge it. You're have to fix all review changes before merge.
 
 If you found a bug with implemented feature, create an issue for that and add mark it with 'bug' label.
+
+Please, dont start to work on task, if required tasks are not merged into dev
