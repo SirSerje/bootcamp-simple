@@ -6,7 +6,7 @@ const request = () => fetch(link).then((response) => {
   return response.json()
 }).then((data) => {
   console.log(JSON.stringify(data));
-    document.querySelector("body").innerHTML = JSON.stringify(data);
+    document.querySelector("#main").innerHTML = JSON.stringify(data);
 }).catch(error => console.error('Error:', error));
 
 export default request

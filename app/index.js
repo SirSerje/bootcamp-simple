@@ -1,5 +1,5 @@
 import 'styles/index.scss';
 import request from 'utils/request';
 
-document.write(`<h1>Weather</h1>`);
+document.querySelector("#head").innerHTML = 'Weather';
 request();
