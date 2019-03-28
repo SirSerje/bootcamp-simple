@@ -9,5 +9,4 @@ const request = () => fetch(link).then((response) => {
 }).catch(error => {
     return document.querySelector("#main").innerHTML = JSON.stringify(error);
 });
-
 export default request

@@ -2,21 +2,23 @@ import 'styles/index.scss';
 import request from 'utils/request';
 
 document.querySelector("#head").innerHTML = 'Weather';
-
-window.addEventListener('load', createClickButton);
 const body = document.querySelector("body");
-const main = document.querySelector("#main");
 
-function createClickButton() {
+
+function createButton() {
     const btn = document.createElement("button");
     const txt = document.createTextNode('click');
     btn.appendChild(txt);
     body.appendChild(btn);
     btn.addEventListener('click', showData);
 }
+createButton();
+
+const main = document.querySelector("#main");
+document.body.appendChild(main);
 
 function showData() {
-    const clone = main.cloneNode(true);
-    document.body.appendChild(clone);
+    const main = document.querySelector("#main");
+    document.body.appendChild(main);
     request()
 }
