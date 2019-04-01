@@ -1,15 +1,24 @@
+import 'styles/index.scss';
+import request from 'utils/request';
 
-console.log('!!!!', A);
-document.getElementsByTagName('body')[0].appendChild(document.createElement("B").appendChild( document.createTextNode("Water")));
-// ================================
-// START YOUR APP HERE
-// ================================
-
-fetch('http://api.apixu.com/v1/current.json?key=c08f9f8a7ac34b338d1140437192203&q=Paris')
-  .then(function(response) {
-    console.log(response)
-  })
+document.querySelector("#head").innerHTML = 'Weather';
+const body = document.querySelector("body");
 
 
-import {twelveTotwenty, twentyToTwelve} from './utils/dateConverter';
-console.log(twentyToTwelve('18:54'), twelveTotwenty('06:15 PM'));
+function createButton() {
+    const btn = document.createElement("button");
+    const txt = document.createTextNode('click');
+    btn.appendChild(txt);
+    body.appendChild(btn);
+    btn.addEventListener('click', showData);
+}
+createButton();
+
+const main = document.querySelector("#main");
+document.body.appendChild(main);
+
+function showData() {
+    const main = document.querySelector("#main");
+    document.body.appendChild(main);
+    request()
+}
