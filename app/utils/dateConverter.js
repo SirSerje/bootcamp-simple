@@ -3,7 +3,7 @@ const twelveTotwenty = function(twelve) {
   var strToNum = twelve.length > 4 ? +twelve.substr(0, 2) : +twelve.substr(0, 1);
   var a = strToNum + 12 == 24 ? a = '00' : strToNum + 12; 
   var b = strToNum > 9 ? twelve.substr(2, 3) : twelve.substr(1, 3);
-  var twenty = a + b; //+ amPm;
+  var twenty = a + b; 
   
   return twenty;
 }
