@@ -22,3 +22,4 @@ async function showData() {
     document.body.appendChild(main);
     main.innerHTML = await request();
 }
+
