@@ -17,8 +17,8 @@ createButton();
 const main = document.querySelector("#main");
 document.body.appendChild(main);
 
-function showData() {
+async function showData() {
     const main = document.querySelector("#main");
     document.body.appendChild(main);
-    request()
+    main.innerHTML = await request();
 }
