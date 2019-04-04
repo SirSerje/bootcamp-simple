@@ -6,10 +6,9 @@ const request = async () => {
     try {
         const response = await fetch(link);
         const data = await response.json();
-        console.log(data);
         return await JSON.stringify(data);
     }catch (e) {
-        throw new Error("Whoops!");
+        throw new Error('Whoops!');
     }
     
 };
