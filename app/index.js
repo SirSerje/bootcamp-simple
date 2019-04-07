@@ -1,9 +1,9 @@
 import 'styles/index.scss';
 import request from 'utils/request';
+import parser from './responseParser';
 
 document.querySelector("#head").innerHTML = 'Weather';
 const body = document.querySelector("body");
-
 
 function createButton() {
     const btn = document.createElement("button");
@@ -20,6 +20,6 @@ document.body.appendChild(main);
 async function showData() {
     const main = document.querySelector("#main");
     document.body.appendChild(main);
-    main.innerHTML = await request();
+    main.innerHTML = parser(request());
 }
 
