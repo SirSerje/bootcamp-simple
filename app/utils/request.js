@@ -10,7 +10,6 @@ const request = async () => {
     }catch (e) {
         throw new Error('Whoops!');
     }
-    
 };
 
 export default request;

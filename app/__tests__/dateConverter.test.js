@@ -1,4 +1,4 @@
-import {twelveTotwenty, twentyToTwelve} from '../utils/dateConverter'
+import {twelveTotwenty, twentyToTwelve} from '../utils/dateConverter';
 
 
 describe('Date converter', () => {
@@ -19,4 +19,4 @@ describe('Date converter', () => {
         expect(twelveTotwenty('12:00 AM')).toBe('00:00');
         expect(twelveTotwenty('25:00')).toBe(null);
     });
-})
+});
