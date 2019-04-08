@@ -1,15 +1,22 @@
-const parser = (jsonObject) => {
-   /* let result = '';
-    for (const property in jsonObject.location) {
-        result += `${property}: ${jsonObject.location[property]}; `;
-    }//https://stackoverflow.com/questions/957537/how-can-i-display-a-javascript-object
-    return result;*/
-    console.log(jsonObject);
-    const objectToCompare = {
-
+const parser = param => {
+    const result = {
+        name: param.location.name,
+        region: param.location.country,
+        time: param.location.localtime,
+        temperature: {
+            real: param.current.temp_c,
+            feels_like: param.current.feelslike_c,
+        },
+        wind: {
+            speed: param.current.wind_kph,
+            direction: param.current.wind_dir,
+        },
+        pressure: param.current.pressure_mb,
+        visibility: param.current.vis_km,
+        precipitation: param.current.precip_mm,
+        humidity: param.current.humidity,
     };
-    console.log(objectToCompare);
-    return objectToCompare;
+    return result;
 };
 
 export default parser;

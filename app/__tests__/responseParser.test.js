@@ -24,6 +24,6 @@ const objectToCompare = {
 describe('Response parser test', () => {
     it('responseParser returns correct data',  async () => {
         let data = await request();
-        expect(parser(data)).toBe(objectToCompare);
+        expect(parser(data)).toMatchObject(objectToCompare);
     });
 });
