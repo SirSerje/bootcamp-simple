@@ -20,6 +20,6 @@ document.body.appendChild(main);
 async function showData() {
     const main = document.querySelector("#main");
     document.body.appendChild(main);
-    main.innerHTML = parser(request());
+    main.innerHTML = parser(await request());
 }
 

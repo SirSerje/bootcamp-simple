@@ -6,7 +6,6 @@ const request = async () => {
     try {
         const response = await fetch(link);
         const data = await response.json();
-        console.log(await JSON.parse(JSON.stringify(data)));
         return await data;
     }catch (e) {
         throw new Error('Whoops!');
