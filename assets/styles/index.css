@@ -27,7 +27,12 @@ body {
     opacity: .6;
 }
 
-.widget span i:hover {
+.widget button {
+    border: none;
+    background: none;
+}
+
+.widget button i:hover {
     color: forestgreen;
     cursor: pointer;
 }
@@ -40,10 +45,11 @@ body {
 
 .item {
     text-align: center;
+    display: flex;
 }
 
 .item:nth-child(1) {
-    font-size: 30px;
+    font-size: 35px;
     align-items: center;
 }
 
@@ -52,25 +58,29 @@ body {
     display: flex;
     justify-content: flex-end;
 }
+
 .item:nth-child(4) {
     font-size: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .item:nth-child(5) {
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .item:nth-child(6) {
     font-size: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.item:nth-child(7), .item:nth-child(8), .item:nth-child(9){
+
+.item:nth-child(7), .item:nth-child(8), .item:nth-child(9) {
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -204,4 +214,9 @@ body {
     55% {
         opacity: 1;
     }
+}
+
+@media only screen and (max-width: 480px) { {
+
+}
 }
