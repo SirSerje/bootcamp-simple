@@ -30,7 +30,7 @@ const twentyToTwelve = function (twenty) {
   let twentyTransformTwelve = (strToNum % 12) || 12
   let addingMinToHour = (strToNum > 9) ?
     twenty.substr(2, 3) :
-    (strToNum <= 9 & twenty.length > 4) ?
+    (strToNum <= 9 && twenty.length > 4) ?
       twenty.substr(2, 3) :
       twenty.substr(1, 3)
   let amPmCheck = strToNum < 12 ?
