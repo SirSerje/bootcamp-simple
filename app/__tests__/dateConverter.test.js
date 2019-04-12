@@ -1,4 +1,4 @@
-import {twelveTotwenty, twentyToTwelve} from '../utils/dateConverter';
+import {twelveToTwenty, twentyToTwelve} from '../utils/dateConverter';
 
 
 describe('Date converter', () => {
@@ -12,11 +12,11 @@ describe('Date converter', () => {
         expect(twentyToTwelve('-01:00')).toBe(null);
     });
     test('12 to 24', () => {
-        expect(twelveTotwenty('04:00 PM')).toBe('16:00');
-        expect(twelveTotwenty('04:00PM')).toBe('16:00');
-        expect(twelveTotwenty('09:00 AM')).toBe('09:00');
-        expect(twelveTotwenty('09:00AM')).toBe('09:00');
-        expect(twelveTotwenty('12:00 AM')).toBe('00:00');
-        expect(twelveTotwenty('25:00')).toBe(null);
+        expect(twelveToTwenty('04:00 PM')).toBe('16:00');
+        expect(twelveToTwenty('04:00PM')).toBe('16:00');
+        expect(twelveToTwenty('09:00 AM')).toBe('09:00');
+        expect(twelveToTwenty('09:00AM')).toBe('09:00');
+        expect(twelveToTwenty('12:00 AM')).toBe('00:00');
+        expect(twelveToTwenty('25:00')).toBe(null);
     });
 });
