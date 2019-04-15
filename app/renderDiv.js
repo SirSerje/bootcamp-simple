@@ -1,34 +1,27 @@
-const renderItem = (someClass, someText) => {
-    const item = document.createElement('div');
-    item.className = someClass;
-    item.innerHTML = someText;
-    return item;
+const create = (what, classAndId, text) => {
+    let element = document.createElement(what);
+    element.className = classAndId.class;
+    element.id = classAndId.id;
+    element.innerText = text;
+    return element;
 };
 
-const renderDiv = (name) => {
-    const widget = document.createElement('div');
-    widget.className = name;
-    widget.append(renderItem('item', 'Kiev'));
-    document.querySelector('body').append(widget);
+const z1 = create('div', {class: 'hello', id: '20'}, 'some');
+const z2 = create('div', {class: 'hello', id: '5'}, 'something');
+const z3 = create('div', {class: 'hello', id: '0'}, '');
+
+const wrap = (whatToWrap, whereToWrap) => {
+    whereToWrap.append(whatToWrap);
+    return whereToWrap;
 };
 
+let a = wrap(z1, z3);
+a = wrap(z2, z3);
 
-export default renderDiv('widget grid');
+const renderApp = (whatToRender, whereToRender) => {
+    document.querySelector(whereToRender).append(whatToRender);
+    return whatToRender;
+};
+renderApp(a, '.app');
 
-
-function create(tagName, props) {
-    return Object.assign(document.createElement(tagName), (props || {}));
-}
-
-function appender(parent, child) {
-    if (child) {
-        parent.append(child);
-    }
-    return parent;
-}
-
-const app = document.querySelector('.app');
-const div = create('div', {className: 'widget grid'});
-const item = create('div', {className: 'item'});
-
-// export default appender(app, appender(div, item));
+export {renderApp};

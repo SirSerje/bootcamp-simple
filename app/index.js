@@ -1,8 +1,7 @@
 import 'styles/index.scss';
 import request from 'utils/request';
 import parser from './responseParser';
-import appender from './renderDiv';
-import renderDiv from './renderDiv';
+import {renderApp} from './renderDiv';
 
 document.querySelector("#head").innerHTML = 'Weather';
 const body = document.querySelector("body");
@@ -25,5 +24,4 @@ async function showData() {
     main.innerHTML = parser(await request());
 }
 
-appender(app, appender(div, item));
-renderDiv('widget grid');
+renderApp();
