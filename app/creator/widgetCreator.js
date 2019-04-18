@@ -1,13 +1,3 @@
-import parser from './parser';
-import request from 'utils/request';
-
-async function dataPars(obj) {
-    return  parser(await obj);
-}
-
-let r = dataPars(request);
-console.log(r);
-
 const create = (what, classAndId, text) => {
     let element = document.createElement(what);
     element.className = classAndId.class;
@@ -17,7 +7,7 @@ const create = (what, classAndId, text) => {
 };
 
 const widget = create('div', {class: 'widget grid', id: ''}, '');
-const city = create('div', {class: 'item', id: ''}, r.name);
+const city = create('div', {class: 'item', id: ''}, '???');
 const empty1 = create('div', {class: 'item', id: ''}, '');
 const setting = create('button', {class: 'item', id: ''}, 'S');
 const icon = create('div', {class: 'item', id: ''}, 'ic');
@@ -42,10 +32,13 @@ a = wrap(fill, widget);
 a = wrap(cloud, widget);
 a = wrap(date, widget);
 
-const renderApp = (whatToRender, whereToRender) => {
-    document.querySelector(whereToRender).append(whatToRender);
-    return whatToRender;
+const renderWidget = (whatToRender, whereToRender) => {
+  //TODO: @MaximGordienko: FIX AN ERROR, PLEASE
+  // document.querySelector(whereToRender).append(whatToRender);
+  //   return whatToRender;
+  return null
 };
-renderApp(a, '.app');
+//FIXME: @MaximGordienko: you shouldn't use function inside it module declaration
+renderWidget(a, '.app');
 
-export {renderApp};
+export {renderWidget};

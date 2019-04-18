@@ -1,14 +1,9 @@
-import key from '../private/apikey.js';
-
-const link = `http://api.apixu.com/v1/current.json?key=${key}&q=Kiev`;
-
-const request = async () => {
+export default async (link) => {
   try {
-    const response = await fetch(link);
-    return await response.json();
+    return await (await fetch(link)).json();
   }catch (e) {
-    throw new Error(e);
+    //I don't want to get error in runtime, so I try to pass it only
+    //through console
+    console.error('We are falling down with an Error', e);
   }
 };
-
-export default request;
