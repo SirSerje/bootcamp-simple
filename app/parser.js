@@ -1,5 +1,5 @@
 const parser = param => {
-    const result = {
+    return {
         name: param.location.name,
         region: param.location.country,
         time: param.location.localtime,
@@ -16,7 +16,6 @@ const parser = param => {
         precipitation: param.current.precip_mm,
         humidity: param.current.humidity,
     };
-    return result;
 };
 
 export default parser;
