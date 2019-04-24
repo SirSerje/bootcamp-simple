@@ -32,11 +32,6 @@ body {
     background: none;
 }
 
-.widget button i:hover {
-    color: forestgreen;
-    cursor: pointer;
-}
-
 .grid {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -53,10 +48,24 @@ body {
     align-items: center;
 }
 
+.item:nth-child(2) {
+    font-size: 25px;
+    align-items: center;
+}
+
 .item:nth-child(3) {
     font-size: 30px;
     display: flex;
     justify-content: flex-end;
+}
+
+.item:nth-child(3):after {
+    content: "\f40d";
+    font-family: "Font Awesome 5 Brands";
+}
+
+.item:nth-child(3):hover {
+    color: forestgreen;
 }
 
 .item:nth-child(4) {
@@ -65,6 +74,12 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.item:nth-child(4):before {
+    content: "\f289";
+    font-family: "Font Awesome 5 Brands";
+}
+
 
 .item:nth-child(5) {
     font-size: 50px;

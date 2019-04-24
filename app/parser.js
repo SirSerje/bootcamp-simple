@@ -1,6 +1,6 @@
 const parser = param => {
     return {
-        name: param.location.name,
+        city: param.location.name,
         region: param.location.country,
         time: param.location.localtime,
         temperature: {
