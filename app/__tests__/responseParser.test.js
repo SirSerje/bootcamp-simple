@@ -1,5 +1,5 @@
 import apiMockResponse from '../mock/apiResponseMock';
-import parser from '../parser';
+import parser from '../utils/parser';
 
 let request = () => new Promise((resolve)=>resolve(apiMockResponse));
 
