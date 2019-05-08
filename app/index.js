@@ -1,25 +1,29 @@
 import 'styles/index.scss';
 import request from 'utils/request';
-import parser from './responseParser';
+import parser from './utils/parser';
+import {renderWidget} from './creator/widgetCreator';
+import createButton from './creator/buttonCreator';
+import key from './private/apikey.js';
 
-document.querySelector("#head").innerHTML = 'Weather';
-const body = document.querySelector("body");
+const link = `http://api.apixu.com/v1/current.json?key=${key}&q=Kiev`;
 
-function createButton() {
-    const btn = document.createElement("button");
-    const txt = document.createTextNode('click');
-    btn.appendChild(txt);
-    body.appendChild(btn);
-    btn.addEventListener('click', showData);
-}
-createButton();
+const body = document.querySelector('body');
+const requestButton = createButton(body);
 
-const main = document.querySelector("#main");
-document.body.appendChild(main);
+requestButton.addEventListener('click', mouseClickHandler);
 
-async function showData() {
-    const main = document.querySelector("#main");
-    document.body.appendChild(main);
-    main.innerHTML = parser(await request());
+async function makeAllBetter() {
+	return parser(await request(link));
 }
 
+async function appRender(whatToRender, whereToRender) {
+	document.querySelector(whereToRender).append(whatToRender);
+	return whereToRender;
+}
+
+function mouseClickHandler() {
+	makeAllBetter().then(i => {
+		console.log('I spin your data on my dick ==>', i);
+		return appRender(renderWidget(i), '.app');
+	});
+}
