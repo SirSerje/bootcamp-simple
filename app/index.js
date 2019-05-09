@@ -17,13 +17,6 @@ async function appRender(whatToRender, whereToRender) {
 	return whereToRender;
 }
 
-function loadWidget() {
-	makeAllBetter().then(i => {
-		console.log('I spin your data on my dick ==>', i);
-		return appRender(renderWidget(i), '.app');
-	});
-}
-
 let reloaded = setInterval(() => {
 	loadWidget();
 }, 1800000);
@@ -31,3 +24,10 @@ let reloaded = setInterval(() => {
 setTimeout(() => {
 	clearInterval(reloaded);
 }, 43200000);
+
+function loadWidget() {
+	makeAllBetter().then(i => {
+		console.log('I spin your data on my dick ==>', i);
+		return appRender(renderWidget(i), '.app');
+	});
+}
