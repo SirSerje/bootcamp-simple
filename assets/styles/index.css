@@ -51,6 +51,7 @@ body {
 .item:nth-child(2) {
     font-size: 25px;
     align-items: center;
+    justify-self: center;
 }
 
 .item:nth-child(3) {

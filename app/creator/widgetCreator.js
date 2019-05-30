@@ -35,6 +35,17 @@ const renderWidget = (i) => {
   return a;
 };
 
-export {renderWidget};
+const backRender = () => {
+  const body = document.querySelector('body');
+  const form = create('from', {class: 'form', id: ''}, '');
+  const input = create('input', {class: 'input', id: ''}, '');
+  const submit = create('button', {class: 'submit', id: ''}, 'Set city');
+  let a = wrap(form, body);
+  a = wrap(input, form);
+  a = wrap(submit, form);
+  return a;
+};
+
+export {renderWidget, backRender};
 
 
