@@ -21,7 +21,6 @@ const renderWidget = (weatherObject) => {
   const empty1 = create('div', {class: 'item', id: ''}, weatherObject.region);
   const setting = create('button', {class: 'item', id: ''}, '');
   const icon = create('div', {class: 'item', id: ''}, '');
-
   const temp = create('div', {class: 'item', id: ''}, `Temp.: ${weatherObject.temperature.real}`);
   const time = create('div', {class: 'item', id: ''}, '');
   const fill = create('div', {class: 'item', id: ''}, `Feels like: ${weatherObject.temperature.feels_like}`);
@@ -40,17 +39,6 @@ const renderWidget = (weatherObject) => {
   a = wrap(grid, widget);
   return a;
 };
-
-// const backRender = () => {
-//   const body = document.querySelector('body');
-//   const form = create('from', {class: 'form', id: ''}, '');
-//   const input = create('input', {class: 'input', id: ''}, '');
-//   const submit = create('button', {class: 'submit', id: ''}, 'Set city');
-//   let a = wrap(form, body);
-//   a = wrap(input, form);
-//   a = wrap(submit, form);
-//   return a;
-// };
 
 export {renderWidget};
 
