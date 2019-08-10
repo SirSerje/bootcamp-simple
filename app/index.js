@@ -4,19 +4,24 @@ import parser from './utils/parser';
 import {renderWidget} from './creator/widgetCreator';
 import key from './private/apikey.js';
 
-const getCity = document.querySelector('#city');
-
-let holdValue = '';
-getCity.addEventListener('change', (e) => {
-  holdValue = e.target.value;
-  console.log(holdValue);
-  return holdValue;
-});
 
 let city = 'Kiev';
-const link = `http://api.apixu.com/v1/current.json?key=${key}&q=${holdValue}`;
+let link = `http://api.apixu.com/v1/current.json?key=${key}&q=${city}`;
 
 window.addEventListener('load', loadWidget);
+
+const button = document.querySelector('.btn');
+button.addEventListener('click', getDataFromURL);
+
+function getDataFromURL(){
+  const cityValue = document.querySelector('#city').value;
+  console.log('cityValue', cityValue);
+  city = cityValue;
+  link = `http://api.apixu.com/v1/current.json?key=${key}&q=${city}`;
+  //обновить body после юзать loadWidget();
+  // document.body = document.createElement('body');
+  loadWidget();
+}
 
 async function makeAllBetter() {
   return parser(await request(link));
@@ -28,9 +33,14 @@ async function appRender(whatToRender, whereToRender) {
 }
 
 function loadWidget() {
-  makeAllBetter().then(i => {
-    console.log('I spin your data on my dick ==>', i);
-    return appRender(renderWidget(i), '.app');
+  makeAllBetter().then(weatherObject => {
+    // console.log('I spin your data on my dick ==>', i);
+    let widget = document.querySelector('.widgetForm');
+    if (widget !== null) {
+    widget.remove();
+      console.log("widget has been removed");
+    }
+    document.querySelector('.app').append(renderWidget(weatherObject));
   });
 }
 

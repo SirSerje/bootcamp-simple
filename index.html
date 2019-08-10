@@ -10,12 +10,16 @@
     <title>Weather</title>
 </head>
 <body>
-<div class="app">
+<div class="app" id="appWidget">
     <div class="cloud-big"></div>
     <div class="cloud-big big"></div>
     <div class="cloud-small"></div>
     <div class="cloud-small small"></div>
-    <input type="text" id="city"><label for="city"> </label>
+    <label for="city"> City
+    <input type="text" id="city" value="">
+    </label>
+    <button type="button" class="btn">get city</button>
+    <div class="widgetForm" id="cityForm"></div>
 </div>
 </body>
 </html>
