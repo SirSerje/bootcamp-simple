@@ -4,7 +4,8 @@ import parser from './utils/parser';
 import {renderWidget} from './creator/widgetCreator';
 import key from './private/apikey.js';
 
-let link = `http://api.apixu.com/v1/current.json?key=${key}&q=London`;
+let default_city = 'Berlin';
+let link = `http://api.apixu.com/v1/current.json?key=${key}&q=${default_city}`;
 
 window.addEventListener('load', loadWidget);
 
@@ -12,7 +13,10 @@ const button = document.querySelector('.btn');
 button.addEventListener('click', getDataFromURL);
 
 function getDataFromURL(){
-  const city = document.querySelector('#city').value;
+  let city = document.querySelector('#city').value;
+  if (city == null || city === ``) {
+    city = default_city;
+  }
   link = `http://api.apixu.com/v1/current.json?key=${key}&q=${city}`;
   loadWidget();
 }
