@@ -1,6 +1,6 @@
-export default async (link) => {
+export default async (__url) => {
   try {
-    return await (await fetch(link)).json();
+    return await (await fetch(__url)).json();
   } catch (e) {
     throw new Error(e);
   }
