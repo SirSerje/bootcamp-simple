@@ -1,11 +1,13 @@
-//className and text are optional params, can be assigned later
+/**
+ * @param className - if there is no need to re-assign className, just pass it at creation
+ * @param text - if there is no need to re-assign value, just pass it to constructor
+ * @returns {DivCreator} - chain-able function
+ */
 function DivCreator(className, text) {
   const self = this;
   self.innerText = '';
-  //используем вместо конструктора
   self.create = () => {
     const div = document.createElement("div");
-
     if (className) div.className = className;
     if (text) div.innerText = text;
     self.element = div;
@@ -42,4 +44,6 @@ function DivCreator(className, text) {
   return self;
 }
 
+// TODO : add uniqueID for any created element
+// TODO: add possibility to add span
 export default DivCreator;

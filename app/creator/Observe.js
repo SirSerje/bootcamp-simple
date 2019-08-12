@@ -1,4 +1,3 @@
-
 function Observe() {
   this.subscribers = [];
   this.add = (item) => this.subscribers.push(item);
@@ -9,7 +8,7 @@ function Observe() {
 
   this.data = {};
   this.setData = data => {
-    //FIXME : некорректная проверка
+    //FIXME : correct merge should be added
     if (this.data !== data) {
       this.data = data;
       this.update(this.data);
