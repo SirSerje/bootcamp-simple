@@ -1,3 +1,15 @@
+div {
+border: 1px solid gray;
+    margin: 2px;
+    padding: 2px;
+}
+* {
+    margin:0;
+    padding:0;
+    font-family: lato, fantasy;
+}
+
+/*
 * {
     margin: 0;
     padding: 0;
@@ -170,7 +182,7 @@ body {
     }
 }
 
-/*from left cloud small*/
+!*from left cloud small*!
 .cloud-small {
     width: 115px;
     height: 40px;
@@ -211,7 +223,7 @@ body {
     left: 63px;
 }
 
-/*from right cloud small*/
+!*from right cloud small*!
 .small {
     animation: small 60s normal 3s infinite forwards;
 }
@@ -234,4 +246,4 @@ body {
 @media only screen and (max-width: 480px) { {
 
 }
-}
+}*/

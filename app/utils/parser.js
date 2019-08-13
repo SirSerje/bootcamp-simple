@@ -1,20 +1,28 @@
 const parser = param => {
+  const {
+    location: {
+      name, country, localtime
+    },
+    current: {
+      temp_c, feelslike_c, wind_kph, wind_dir, pressure_mb, vis_km, precip_mm, humidity,
+    },
+  } = param;
   return {
-    name: param.location.name,
-    region: param.location.country,
-    time: param.location.localtime,
+    name,
+    region: country,
+    time: localtime,
     temperature: {
-      real: param.current.temp_c,
-      feels_like: param.current.feelslike_c,
+      real: temp_c,
+      feels_like: feelslike_c,
     },
     wind: {
-      speed: param.current.wind_kph,
-      direction: param.current.wind_dir,
+      speed: wind_kph,
+      direction: wind_dir,
     },
-    pressure: param.current.pressure_mb,
-    visibility: param.current.vis_km,
-    precipitation: param.current.precip_mm,
-    humidity: param.current.humidity,
+    pressure: pressure_mb,
+    visibility: vis_km,
+    precipitation: precip_mm,
+    humidity: humidity,
   };
 };
 

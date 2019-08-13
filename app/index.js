@@ -7,29 +7,36 @@ import DivCreator from "./creator/Creator";
 
 const link = `http://api.apixu.com/v1/current.json?key=${key}&q=Kiev`;
 let ROOT = document.getElementById("test");
-
-//example of usage
-let a = new DivCreator();
-a.addClass('some');
-a.applyText('Hello, some').mountToDOM(ROOT);
-
-let b = new DivCreator('some2', 'some text here');
-b.mountToDOM(ROOT);
-//subscribe
-a.addHandler((data) => `I get data ${data.name}`);
-b.addHandler((data) => `And I get data ${data.another}`);
-
 let observe = new Observe();
 
-observe.add(a);
-observe.add(b);
+observe.add(new DivCreator().addClass('country')
+.addHandler((data) => `country: ${data.region}`).mountToDOM(ROOT));
 
-observe.setData({name: 'foo15', another: 'bar15'});
+observe.add(new DivCreator().addClass('time $')
+.addHandler((data) => `time: ${data.time}`).mountToDOM(ROOT));
+
+observe.add(new DivCreator().addClass('temp_r')
+.addHandler((data) => `real temperature: ${data.temperature.real}C`).mountToDOM(ROOT));
+
+observe.add(new DivCreator().addClass('temp_f')
+.addHandler((data) => `temperature feels like: ${data.temperature.feels_like}C`).mountToDOM(ROOT));
+
+observe.add(new DivCreator().addClass('wind_speed')
+.addHandler((data) => `wind speed: ${data.wind.speed}km/h`).mountToDOM(ROOT));
+
+observe.add(new DivCreator().addClass('wind_dir')
+.addHandler((data) => `wind direction: ${data.wind.direction}`).mountToDOM(ROOT));
+
+observe.add(new DivCreator().addClass('visibility')
+.addHandler((data) => `visibility: ${data.visibility}km`).mountToDOM(ROOT));
+
 
 let intervalFunction = URLAddress => {
   request(URLAddress).then(i=> {
-    observe.setData({name: parser(i).name, another: 'bar15'});
+    observe.setData(parser(i));
   })
 };
+let interval = setInterval(intervalFunction, 10000, link);
 
-let interval = setInterval(intervalFunction, 1000, link);
+//run once at start
+intervalFunction(link);

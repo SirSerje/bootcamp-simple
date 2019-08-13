@@ -1,6 +1,7 @@
 export default async (link) => {
   try {
-    return await (await fetch(link)).json();
+    const response = await fetch(link);
+    return await response.json();
   } catch (e) {
     throw new Error(e);
   }
