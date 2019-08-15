@@ -1,28 +1,29 @@
-const parser = param => {
+const parser = (param) => {
   const {
     location: {
-      name, country, localtime
+      name, country, localtime,
     },
     current: {
-      temp_c, feelslike_c, wind_kph, wind_dir, pressure_mb, vis_km, precip_mm, humidity,
+      temporaryC, feelslike_c, wind_kph, windDirectory, pressure_mb, vis_km, precip_mm, humidity,
     },
   } = param;
+
   return {
     name,
     region: country,
     time: localtime,
     temperature: {
-      real: temp_c,
+      real: temporaryC,
       feels_like: feelslike_c,
     },
     wind: {
       speed: wind_kph,
-      direction: wind_dir,
+      direction: windDirectory,
     },
     pressure: pressure_mb,
     visibility: vis_km,
     precipitation: precip_mm,
-    humidity: humidity,
+    humidity,
   };
 };
 

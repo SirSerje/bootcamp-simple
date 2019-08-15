@@ -3,44 +3,52 @@
  * @param text - if there is no need to re-assign value, just pass it to constructor
  * @returns {DivCreator} - chain-able function
  */
-function DivCreator(className, text) {
+function DivCreator (className, text) {
   const self = this;
-  self.innerText = '';
+  self.textContent = '';
   self.create = () => {
-    const div = document.createElement("div");
-    if (className) div.className = className;
-    if (text) div.innerText = text;
+    const div = document.createElement('div');
+    if (className) {
+      div.className = className;
+    }
+    if (text) {
+      div.textContent = text;
+    }
     self.element = div;
   };
   self.create();
 
-  self.addClass = name => {
-    //TODO: class can handle more than one className
+  self.addClass = (name) => {
+    // TODO: class can handle more than one className
     self.element.className = name;
+
     return self;
   };
 
-  self.applyText = text => {
-    self.innerText = text;
-    self.element.innerText = text;
+  self.applyText = (text) => {
+    self.textContent = text;
+    self.element.textContent = text;
+
     return self;
   };
 
   self.addHandler = (param) => {
     if (param) {
-      self.updater = function(i) {
+      self.updater = function (i) {
         self.applyText(param(i));
-      }
+      };
     }
-    return self
+
+    return self;
   };
 
   // TODO : add root as separate function
   self.mountToDOM = (root) => {
-    console.log(root);
-    root.appendChild(self.element);
+    root.append(self.element);
+
     return self;
   };
+
   return self;
 }
 

@@ -40,5 +40,4 @@ const apiMockResponse = {
   },
 };
 
-
 export default apiMockResponse;

@@ -1,6 +1,5 @@
 import {twelveToTwenty, twentyToTwelve} from '../utils/dateConverter';
 
-
 describe('Date converter', () => {
   test('24 to 12', () => {
     expect(twentyToTwelve('16:54')).toBe('4:54 PM');

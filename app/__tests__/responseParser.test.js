@@ -1,7 +1,11 @@
 import apiMockResponse from '../mock/apiResponseMock';
 import parser from '../utils/parser';
 
-let request = () => new Promise((resolve)=>resolve(apiMockResponse));
+const request = () => {
+  return new Promise((resolve) => {
+    return resolve(apiMockResponse);
+  });
+};
 
 const objectToCompare = {
   name: 'Kiev',
@@ -12,8 +16,8 @@ const objectToCompare = {
     feels_like: 20,
   },
   wind: {
-    'speed': 15.1,
-    'direction': 'S',
+    speed: 15.1,
+    direction: 'S',
   },
   pressure: 1010,
   visibility: 10,
@@ -22,8 +26,8 @@ const objectToCompare = {
 };
 
 describe('Response parser test', () => {
-  it('responseParser returns correct data',  async () => {
-    let data = await request();
+  it('responseParser returns correct data', async () => {
+    const data = await request();
     expect(parser(data)).toMatchObject(objectToCompare);
   });
 });
