@@ -1,10 +1,11 @@
 /* eslint-disable arrow-body-style */
-import 'styles/index.scss';
-import request from 'utils/request';
 import parser from './utils/parser';
 import key from './private/apikey';
 import Observe from './creator/Observe';
 import DivCreator from './creator/Creator';
+import request from './utils/request';
+// eslint-disable-next-line import/no-unassigned-import
+import './styles/index.scss';
 
 const linkByCity = (city) => `http://api.apixu.com/v1/current.json?key=${key}&q=${city}`;
 
@@ -15,7 +16,7 @@ const create = (node) => {
         return `country: ${data.name}
       time: ${data.time}
       temperature feels like: ${data.temperature.feels_like}C`;
-      }).mountToDOM(node)
+      }).mountToDOM(node),
     );
   };
 };

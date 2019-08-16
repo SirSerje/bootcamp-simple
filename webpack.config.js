@@ -1,110 +1,59 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require(
-  'webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// Is the current build a development build
-const IS_DEV = (process.env.NODE_ENV === 'dev');
-
-const dirNode = 'node_modules';
-const dirApp = path.join(__dirname, 'app');
-const dirAssets = path.join(__dirname, 'assets');
-
-const appHtmlTitle = 'Webpack Boilerplate';
-
-/**
- * Webpack Configuration
- */
 module.exports = {
-  entry: {
-    /*   vendor: [
-     'lodash'
-     ],*/
-    bundle: path.join(dirApp, 'index'),
+  entry: './src/index.js',
+  output: {
+    filename: 'app.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  
+  watchOptions: {
+    poll: 5000,
+    ignored: ['public', 'server.js', 'postman', 'db'],
+  },
+  devtool: 'eval-source-map',
   resolve: {
-    modules: [
-      dirNode,
-      dirApp,
-      dirAssets,
-    ],
+    extensions: ['*', '.js', '.jsx'],
   },
-  
-  plugins: [
-    new webpack.DefinePlugin({
-      IS_DEV: IS_DEV,
-    }),
-    
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
-      title: appHtmlTitle,
-    }),
-    // new BundleAnalyzerPlugin()
-  ],
   module: {
     rules: [
-      // BABEL
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules)/,
-        options: {
-          compact: true,
-        },
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
       },
-      
-      // STYLES
       {
-        test: /\.css$/,
+        test: [/\.css$/, /\.scss$/],
         use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: IS_DEV,
-            },
-          },
-        ],
-      },
-      
-      // CSS / SASS
-      {
-        test: /\.scss/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: IS_DEV,
-            },
-          },
+          {loader: 'style-loader'},
+          {loader: 'css-loader'},
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: IS_DEV,
-              includePaths: [dirAssets],
+              includePaths: ['./src/'],
             },
           },
         ],
       },
-      
-      // IMAGES
       {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
-      },
-      
-      //ENABLE SOURCE MAPS
-      {
-        test: /\.js$/,
-        use: ['source-map-loader'],
-        enforce: 'pre',
+        test: /\.(svg|png|jpg|gif)$/,
+        use: ['file-loader'],
       },
     ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './assets/index.html',
+    }),
+  ],
+  devServer: {
+    historyApiFallback: true,
+    port: 3867,
+    proxy: {
+      '/api': 'http://localhost:4125',
+    },
+    contentBase: 'build',
+    stats: 'errors-only',
+    open: true,
   },
 };

@@ -3,6 +3,8 @@
 node_modules
 npm-debug.log
 .idea
-/app/private/*
+src/private/*
+build/
+dist/
 /.idea/
 .gitignore

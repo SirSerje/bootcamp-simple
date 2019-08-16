@@ -3,11 +3,12 @@
   "version": "4.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
-    "lint": " ./node_modules/.bin/eslint ./app/*/**.js",
-    "lint-fix": "./node_modules/.bin/eslint ./app/*/**.js --fix",
-    "build": "webpack -p --progress --mode production --config webpack.config.build.js",
-    "test": "jest"
+    "build": "webpack --mode production --progress",
+    "start": "webpack-dev-server --open --mode development --progress",
+
+    "lint":    " ./node_modules/.bin/eslint src/*/**.js",
+    "lint-fix":"./node_modules/.bin/eslint src/*/**.js --fix",
+    "test":    "jest"
   },
   "husky": {
     "hooks": {

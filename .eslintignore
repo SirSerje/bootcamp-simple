@@ -1,0 +1,7 @@
+src/serviceWorker.js
+node_modules/
+serviceWorker.js
+dist/
+build/
+webpack.config.js
+babel.config.js
